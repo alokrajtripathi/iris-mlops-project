@@ -1,0 +1,20 @@
+name: ML Pipeline
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  train-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Project code
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          Python-version: "3.11"
+      - name: Install libraries/dependencies
+        run: pip install -r requirements.txt
+      - name: ML model Testing
+        run: python test.py
