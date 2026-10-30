@@ -13,6 +13,6 @@ def predict():
     p_l = data['petal_length']
     p_w = data['petal_width']
     pred = model.predict([[s_l, s_w, p_l, p_w]])
-    return jsonify({'prediction': str(pred[0])})
+    return jsonify({"message": "new version deployed"})
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001, debug=True)
